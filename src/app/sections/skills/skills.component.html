@@ -1,0 +1,18 @@
+  <section class="block" id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec-title rv" id="skills-h">Skills</h2></div>
+      <div class="tabs rv" role="group" aria-label="Filter skills">
+        @for (t of tabs; track t.key) {
+          <button class="tab" type="button" [attr.aria-pressed]="filter() === t.key" (click)="filter.set(t.key)">{{ t.label }}</button>
+        }
+      </div>
+      <div class="skill-grid" id="skill-grid">
+        @for (s of visible(); track filter() + s.name; let i = $index) {
+          <div class="skill" [attr.data-g]="s.group" [style.animation-delay]="i * 0.04 + 's'">
+            <span class="ico"><svg class="lg" viewBox="0 0 32 32" aria-hidden="true"><use [attr.href]="'#' + s.logo"/></svg></span>
+            <div><b>{{ s.name }}</b>@if (s.note) {<small>{{ s.note }}</small>}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>

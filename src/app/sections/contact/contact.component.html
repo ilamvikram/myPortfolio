@@ -1,0 +1,29 @@
+  <section class="block" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="contact rv z">
+        <div class="c-left">
+          <h2 id="contact-h">Get In Touch</h2>
+          <p class="lead">I'm open to new opportunities and collaborations. Feel free to reach out, I'd love to connect.</p>
+          <div class="info static"><span class="ib"><svg class="ic"><use href="#i-pin"/></svg></span><div><small>Location</small><span class="v">Chennai, Tamil Nadu, India</span></div></div>
+          <button class="info" type="button" (click)="copy('email', $event)"><span class="ib"><svg class="ic"><use href="#i-mail"/></svg></span><div><small>Email</small><span class="v">ilamvikram27&#64;gmail.com</span><em>{{ copyLabel('email') }}</em></div></button>
+          <button class="info" type="button" (click)="copy('phone', $event)"><span class="ib"><svg class="ic"><use href="#i-phone"/></svg></span><div><small>Phone</small><span class="v">+91 9385375007</span><em>{{ copyLabel('phone') }}</em></div></button>
+        </div>
+        <div class="c-right">
+          <h3>Let's Build Something Great!</h3>
+          <p class="lead">Write your message and press the green button. WhatsApp opens with your name and message already filled in. You only press Send, and it reaches me directly.</p>
+          <form id="contact-form" novalidate (submit)="$event.preventDefault()">
+            <div class="field"><label for="f-name">Full Name</label><div class="input"><svg class="ic"><use href="#i-user"/></svg><input id="f-name" #nameInput type="text" autocomplete="name" placeholder="Enter your name" [value]="name()" (input)="name.set($any($event.target).value)"></div></div>
+            <div class="field"><label for="f-email">Email Address <span class="opt">(optional)</span></label><div class="input"><svg class="ic"><use href="#i-mail"/></svg><input id="f-email" type="email" autocomplete="email" placeholder="Enter your email" [value]="email()" (input)="email.set($any($event.target).value)"></div></div>
+            <div class="field"><label for="f-msg">Message</label><div class="input"><svg class="ic"><use href="#i-msg"/></svg><textarea id="f-msg" #msgInput placeholder="Tell me about the role or project..." [value]="message()" (input)="message.set($any($event.target).value)"></textarea></div></div>
+            <a class="btn wa submit" id="wa-send" [href]="href()" target="_blank" rel="noopener noreferrer" (click)="send($event)"><svg class="ic fill"><use href="#i-wa"/></svg>Send on WhatsApp</a>
+            <p class="status" id="form-status" role="status" aria-live="polite">
+              @switch (status()) {
+                @case ('missing') { Please add your name and a message first. }
+                @case ('ready') { Your message is ready in WhatsApp. Press Send there to deliver it. Nothing opened? Message me directly on <b>+91 93853 75007</b>. }
+              }
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

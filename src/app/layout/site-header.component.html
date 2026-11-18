@@ -1,0 +1,17 @@
+<header class="nav-outer">
+  <div class="wrap">
+    <div class="nav">
+      <a class="logo" href="#home" aria-label="Ilam Vikram, back to top"><img src="logo.jpg" alt=""></a>
+      <nav aria-label="Sections" style="min-width:0">
+        <ul class="nav-links">
+          @for (l of links; track l.id) {
+            <li><a [href]="'#' + l.id" [class.active]="active() === l.id">{{ l.label }}</a></li>
+          }
+        </ul>
+      </nav>
+      <button class="switch" type="button" aria-label="Dark mode" [attr.aria-pressed]="theme.dark()" (click)="theme.toggle()"><span class="knob"></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="progress" aria-hidden="true" [style.transform]="'scaleX(' + scroll.progress() + ')'"></div>

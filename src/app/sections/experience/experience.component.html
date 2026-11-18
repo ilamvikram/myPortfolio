@@ -1,0 +1,38 @@
+  <section class="block" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec-title rv" id="exp-h">Journey</h2></div>
+      <div class="timeline" #timeline [style.--prog]="progress() + '%'">
+        <div class="tl">
+          <div class="node" #node [class.on]="nodesOn()[0]" aria-hidden="true">2</div>
+          <article class="tl-card rv l" id="job-card" [class.open]="open()">
+            <div class="tl-top"><h3>Rudram Phronesis Infra Analytics</h3><span class="badge">COMPANY</span></div>
+            <p class="tl-role">Software Engineer, Frontend and Production Support</p>
+            <p class="tl-meta">Oct 2023 – Jan 2026 | Chennai | In-house product</p>
+            <ul>
+              <li>Built and maintained production Angular apps used by 300+ internal users.</li>
+              <li>Introduced lazy loading and reusable components, improving initial load by about 25%.</li>
+              <li>Cut recurring UI defects by about 30% through log analysis and root-cause fixes.</li>
+            </ul>
+            <div class="more" id="job-more"><div>
+              <ul>
+                <li>Integrated RESTful APIs and worked with XML and JSON, partnering with backend teams on reliable data flow and error handling.</li>
+                <li>Supported GitLab CI/CD pipelines for build, deployment and release across 20+ releases.</li>
+                <li>Implemented PII data masking in line with data-protection best practice.</li>
+                <li>Used jQuery next to Angular for DOM work and legacy UI improvements in selected modules.</li>
+                <li>Worked with QA and DevOps during releases and incident resolution to keep the system reliable.</li>
+              </ul>
+            </div></div>
+            <button class="toggle" type="button" id="job-toggle" [attr.aria-expanded]="open()" aria-controls="job-more" (click)="toggle()"><span>{{ open() ? 'Show fewer responsibilities' : 'Show more responsibilities' }}</span><svg class="ic"><use href="#i-down"/></svg></button>
+          </article>
+        </div>
+        <div class="tl right">
+          <div class="node" #node [class.on]="nodesOn()[1]" aria-hidden="true">1</div>
+          <article class="tl-card rv r">
+            <div class="tl-top"><h3>K. Ramakrishnan College of Engineering</h3><span class="badge edu">EDUCATION</span></div>
+            <p class="tl-role">Bachelor of Engineering, Electrical and Electronics Engineering</p>
+            <p class="tl-meta">Aug 2018 – Jun 2022</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>

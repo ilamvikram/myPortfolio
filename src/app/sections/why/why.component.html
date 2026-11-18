@@ -1,0 +1,32 @@
+  <section class="block" id="why" aria-labelledby="why-h">
+    <div class="wrap"><div class="sec-head"><h2 class="sec-title rv" id="why-h">Why Choose Me ?</h2></div></div>
+    <div class="wrap">
+      <div class="carousel rv" #wrap role="region" aria-roledescription="carousel" aria-label="Why choose me">
+        <div class="c-viewport" #vp tabindex="0" [class.dragging]="dragging()"
+             (keydown)="onKey($event)" (scroll)="onScroll()" (pointerdown)="onPointerDown($event)"
+             (touchstart)="onTouch()" (wheel)="touched()" (click)="onClickCapture($event)">
+          <div class="c-track">
+            @for (c of cards; track c.title) {
+              <article class="why" [style.--c]="c.color">
+                <div class="tile"><svg class="ic"><use [attr.href]="'#' + c.icon"/></svg></div>
+                <h3>{{ c.title }}</h3>
+                <p>{{ c.text }}</p>
+              </article>
+            }
+          </div>
+        </div>
+        <div class="c-ctrl">
+          <button class="c-btn" type="button" aria-label="Previous card" (click)="prev()"><svg class="ic"><use href="#i-left"/></svg></button>
+          <div class="c-dots">
+            @for (p of pages(); track p) {
+              <button class="c-dot" type="button" [attr.aria-label]="'Go to card ' + (p + 1)" [attr.aria-current]="current() === p" (click)="goTo(p)"></button>
+            }
+          </div>
+          <button class="c-btn" type="button" aria-label="Next card" (click)="next()"><svg class="ic"><use href="#i-right"/></svg></button>
+          <button class="c-btn c-pp" type="button" [attr.aria-label]="playing() ? 'Pause auto-play' : 'Play auto-play'" [attr.aria-pressed]="!playing()" (click)="togglePlay()">
+            <svg class="ic"><use [attr.href]="playing() ? '#i-pause' : '#i-play'"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
